@@ -8,7 +8,10 @@
     <link rel="icon" type="images/x-icon" href="img/favicon.svg">
 </head>
 <body>
-  <div id="attempts-counter">Attempts: 0</div>
+    <div class="score">
+      <div id="attempts-counter">Attempts: 0</div>
+      <button id="restart-button">Restart</button>
+    </div>
     <section class="memory-game">
         <div class="memory-card" data-planet="jupiter">
           <img class="front-face" src="img/jupiter.jpg" alt="jupiter">
@@ -91,10 +94,17 @@
         </div>
     
       </section>
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Congratulations!</h2>
+          <p>You've completed the game in <span id="finalAttempts">0</span> attempts.</p>
+          <button id="playAgainButton" onclick="restartGame()">Play Again</button>
+        </div>
+      </div>
+      
+      
 
-
-
-    
     <script src="js/script.js"></script>
 </body>
 </html>
