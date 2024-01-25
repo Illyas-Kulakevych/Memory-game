@@ -123,5 +123,29 @@ function closeModal() {
   modal.style.display = 'none';
 }
 
-
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+// START SCREEN
+
+const startScreen = document.getElementById('start-screen');
+const startButton = document.getElementById('start-button');
+
+function showStartScreen() {
+  startScreen.style.display = 'flex';
+}
+
+function hideStartScreen() {
+  startScreen.style.display = 'none';
+}
+
+startButton.addEventListener('click', () => {
+  hideStartScreen();
+  startGame();
+});
+
+function startGame() {
+  resetGame();
+  shuffleCards()
+}
+
+showStartScreen();
