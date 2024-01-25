@@ -7,7 +7,7 @@
   body {
     height: 100vh;
     display: flex;
-    background-image: url(/img/bg-space.jpg);
+    background-image: url(../img/bg-space.jpg);
     background-size: cover; 
     background-repeat: no-repeat;
     background-color: black;
