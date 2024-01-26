@@ -6,16 +6,21 @@
     <title>Memory-Game</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" type="images/x-icon" href="img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Single+Day&display=swap" rel="stylesheet">
 </head>
 <body>
+  <h1 class="memory-title">MEMORY GAME</h1>
   <div class="start-screen" id="start-screen">
     <h1>Memory Game</h1>
     <button id="start-button">Start Game</button>
   </div>
-    <div class="score">
-      <div id="attempts-counter">Attempts: 0</div>
-      <button id="restart-button">Restart</button>
-    </div>
+    
     <section class="memory-game">
         <div class="memory-card" data-planet="jupiter">
           <img class="front-face" src="img/jupiter.jpg" alt="jupiter">
@@ -98,6 +103,10 @@
         </div>
     
       </section>
+      <div class="score">
+        <div id="attempts-counter">Attempts: 0</div>
+        <button id="restart-button">Restart</button>
+      </div>
       <div id="modal" class="modal">
         <div class="modal-content">
           <span class="close" onclick="closeModal()">&times;</span>

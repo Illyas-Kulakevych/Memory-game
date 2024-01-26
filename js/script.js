@@ -115,14 +115,27 @@ function saveRecord(record) {
 function updateRecordsList() {
   const records = JSON.parse(localStorage.getItem('memoryGameRecords')) || [];
   const sortedRecords = records.sort((a, b) => a - b);
-
+  
+  const topRecords = sortedRecords.slice(0, 3);
   recordsList.innerHTML = '';
 
   sortedRecords.forEach((record, index) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `Place ${index + 1}: ${record} attempts`;
-    recordsList.appendChild(listItem);
+    if (window.innerWidth <= 767 && index < 3) {
+      const listItem = document.createElement('li');
+      listItem.textContent = `Place ${index + 1}: ${record} attempts`;
+      recordsList.appendChild(listItem);
+    } else if (window.innerWidth > 767) {
+      const listItem = document.createElement('li');
+      listItem.textContent = `Place ${index + 1}: ${record} attempts`;
+      recordsList.appendChild(listItem);
+    }
   });
+
+  // sortedRecords.forEach((record, index) => {
+  //   const listItem = document.createElement('li');
+  //   listItem.textContent = `Place ${index + 1}: ${record} attempts`;
+  //   recordsList.appendChild(listItem);
+  // });
 }
 
 function resetGame() {

@@ -59,6 +59,7 @@ body {
 }
 
 #attempts-counter {
+  font-family: 'Single Day', cursive;
   color: rgb(55, 255, 6);
   font-size: 30px;
   margin-bottom: 20px;
@@ -74,6 +75,7 @@ body {
 }
 
 #restart-button {
+  font-family: 'Single Day', cursive;
   height: 50px;
   background-color: transparent;
   border: 5px solid rgb(49, 252, 13);
@@ -170,6 +172,7 @@ body {
 }
 
 #records-container{
+  font-family: 'Honk', system-ui;
   color: #faf7f7;
   position: absolute;
   top: 50px;
@@ -178,6 +181,7 @@ body {
 }
 
 #clear-leaderboard-button{
+  font-family: 'Single Day', cursive;
   margin-top: 20px;
   height: 45px;
   width: 185px;
@@ -189,10 +193,85 @@ body {
   cursor: pointer;
   transition-duration: 0.4s;
   box-shadow: 0 0px 30px 5px #ff5555;
-
 }
 
 #clear-leaderboard-button:hover {
   background-color: #ff3333;
   color: white;
+}
+
+.memory-title{
+  display: none;
+}
+
+@media (max-width: 767px) {
+  body{
+    display: flex;
+    flex-direction: column;
+  }
+  .memory-title{
+    font-family: 'Single Day', cursive;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 40px;
+    border: 5px solid #703aa1;
+    background-color: #9e40f7a4;
+  
+  border-radius: 15px;
+  }
+  .memory-game {
+    width: 320px;
+    height: 320px;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+  }
+  .score {
+    min-width: 320px;
+      position: relative;
+      margin-top: 20px;
+      margin-left: 0;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+      scale: 1;
+  }
+  #attempts-counter {
+    font-family: 'Single Day', cursive;
+    color: rgb(55, 255, 6);
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+  #restart-button {
+    font-family: 'Single Day', cursive;
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0px 30px 9px #118f32;
+  }
+
+  #records-container {
+    font-family: 'Honk', system-ui;
+    margin-top: -25px;
+    color: #faf7f7;
+    position: relative;
+    right: auto;
+    font-size: 23px;
+    justify-self: center;
+    align-self: center;
+  }
+  #clear-leaderboard-button{
+    font-family: 'Single Day', cursive;
+    font-weight:800;
+    margin-top: 20px;
+    height: 35px;
+    width: 200px;
+    font-size: 18px;
+  }
+  
 }
