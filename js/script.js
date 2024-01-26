@@ -1,6 +1,10 @@
 const cards = document.querySelectorAll('.memory-card');
 const restartButton = document.getElementById('restart-button');
 const attemptsCounter = document.getElementById('attempts-counter');
+// 
+const recordsContainer = document.getElementById('records-container');
+const recordsList = document.getElementById('records-list');
+// 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -29,10 +33,6 @@ function updateAttemptsCounter() {
   attemptsCounter.textContent = `Attempts: ${attempts}`;
 }
 
-// function checkForMatch() {
-//   let isMatch = firstCard.dataset.planet === secondCard.dataset.planet;
-//   isMatch ? disableCards() : unflipCards();
-// }
 function checkForMatch() {
   if (firstCard.dataset.planet === secondCard.dataset.planet) {
     disableCards();
@@ -45,8 +45,6 @@ function checkForMatch() {
     unflipCards();
   }
 }
-
-
 
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
@@ -103,6 +101,28 @@ function gameCompleted() {
     closeModal();
     resetGame();
   });
+
+  saveRecord(attempts);
+  updateRecordsList();
+}
+
+function saveRecord(record) {
+  const records = JSON.parse(localStorage.getItem('memoryGameRecords')) || [];
+  records.push(record);
+  localStorage.setItem('memoryGameRecords', JSON.stringify(records));
+}
+
+function updateRecordsList() {
+  const records = JSON.parse(localStorage.getItem('memoryGameRecords')) || [];
+  const sortedRecords = records.sort((a, b) => a - b);
+
+  recordsList.innerHTML = '';
+
+  sortedRecords.forEach((record, index) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `Place ${index + 1}: ${record} attempts`;
+    recordsList.appendChild(listItem);
+  });
 }
 
 function resetGame() {
@@ -122,10 +142,14 @@ function closeModal() {
   const modal = document.getElementById('modal');
   modal.style.display = 'none';
 }
+const clearLeaderboardButton = document.getElementById('clear-leaderboard-button');
+
+clearLeaderboardButton.addEventListener('click', () => {
+  localStorage.clear();
+  updateRecordsList();
+});
 
 cards.forEach(card => card.addEventListener('click', flipCard));
-
-// START SCREEN
 
 const startScreen = document.getElementById('start-screen');
 const startButton = document.getElementById('start-button');
@@ -144,8 +168,10 @@ startButton.addEventListener('click', () => {
 });
 
 function startGame() {
+  hideStartScreen();
+  updateRecordsList();
   resetGame();
-  shuffleCards()
+  shuffleCards();
 }
 
 showStartScreen();
