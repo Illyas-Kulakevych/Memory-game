@@ -1,15 +1,12 @@
 const cards = document.querySelectorAll('.memory-card');
 const restartButton = document.getElementById('restart-button');
 const attemptsCounter = document.getElementById('attempts-counter');
-// 
 const recordsContainer = document.getElementById('records-container');
 const recordsList = document.getElementById('records-list');
-// 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let attempts = 0;
-//
 let pairs = 0;
 
 function flipCard() {
@@ -25,7 +22,6 @@ function flipCard() {
   secondCard = this;
   attempts++;
   updateAttemptsCounter();
-
   checkForMatch();
 }
 
@@ -130,12 +126,6 @@ function updateRecordsList() {
       recordsList.appendChild(listItem);
     }
   });
-
-  // sortedRecords.forEach((record, index) => {
-  //   const listItem = document.createElement('li');
-  //   listItem.textContent = `Place ${index + 1}: ${record} attempts`;
-  //   recordsList.appendChild(listItem);
-  // });
 }
 
 function resetGame() {

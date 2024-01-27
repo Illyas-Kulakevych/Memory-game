@@ -201,7 +201,21 @@ body {
 }
 
 .memory-title{
-  display: none;
+  
+  font-family: 'Single Day', cursive;
+  color: rgb(255, 255, 255);
+  /* display: flex; */
+  display: none; 
+  justify-content: center;
+  text-align: center;
+  font-size: 55px;
+  border: 5px solid #703aa1;
+  background-color: #9e40f7a4;
+  border-radius: 15px;
+  height: 80px;
+  position: absolute;
+  top: 180px;
+  left: 70px;
 }
 
 @media (max-width: 767px) {
@@ -210,17 +224,13 @@ body {
     flex-direction: column;
   }
   .memory-title{
-    font-family: 'Single Day', cursive;
-    color: rgb(255, 255, 255);
     display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 40px;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: auto;
+    margin-top: 25px;
     font-size: 40px;
-    border: 5px solid #703aa1;
-    background-color: #9e40f7a4;
-  
-  border-radius: 15px;
   }
   .memory-game {
     width: 320px;
